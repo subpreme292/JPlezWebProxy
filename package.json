@@ -1,11 +1,16 @@
 {
-    "name": "Jplez Browser",
-    "version": "1.0.0",
-    "scripts": {
-        "start": "node server.js"
-    },
-    "dependencies": {
-        "express": "^4.17.1",
-        "http-proxy-middleware": "^1.0.6"
-    }
+  "name": "jplez-browser-proxy",
+  "version": "1.0.0",
+  "description": "JPlez Browser Proxy",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["jplez", "browser", "proxy"],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.6"
+  }
 }
