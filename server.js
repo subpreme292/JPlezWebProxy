@@ -8,7 +8,10 @@ const port = process.env.PORT || 3000;
 app.use(express.static('public'));
 
 // Configure proxy middleware with '/proxy' route
-app.use('/proxy', createProxyMiddleware({ target: 'https://www.google.com', changeOrigin: true }));
+app.use('/proxy', (req, res, next) => {
+    const targetURL = req.query.url || 'https://www.google.com';
+    createProxyMiddleware({ target: targetURL, changeOrigin: true })(req, res, next);
+});
 
 // Start the server
 app.listen(port, () => {
