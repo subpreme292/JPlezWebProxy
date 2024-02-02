@@ -7,10 +7,33 @@
 </head>
 <body>
     <h1>JPlez Browser</h1>
-    <form action="/proxy" method="GET">
+    <form id="searchForm" onsubmit="performSearch(); return false;">
         <label for="searchQuery">Search Anything:</label>
         <input type="text" id="searchQuery" name="q" required>
         <button type="submit">Search</button>
     </form>
+    <div id="searchResults"></div>
+
+    <script>
+        function performSearch() {
+            // Get the search query
+            const searchQuery = document.getElementById('searchQuery').value;
+
+            // Construct the Google search URL
+            const googleSearchURL = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+
+            // Display the search results in an iframe
+            const iframe = document.createElement('iframe');
+            iframe.src = `/proxy?url=${encodeURIComponent(googleSearchURL)}`;
+            iframe.style.width = '100%';
+            iframe.style.height = '500px';
+
+            // Clear previous search results
+            document.getElementById('searchResults').innerHTML = '';
+
+            // Append the iframe to the searchResults div
+            document.getElementById('searchResults').appendChild(iframe);
+        }
+    </script>
 </body>
 </html>
