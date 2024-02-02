@@ -7,17 +7,10 @@
 </head>
 <body>
     <h1>JPlez Browser</h1>
-    <form id="searchForm" action="/search" method="GET">
+    <form action="/proxy" method="GET">
         <label for="searchQuery">Search Anything:</label>
         <input type="text" id="searchQuery" name="q" required>
         <button type="submit">Search</button>
     </form>
-    <script>
-        document.getElementById('searchForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const searchQuery = document.getElementById('searchQuery').value;
-            window.location.href = `/proxy?q=${encodeURIComponent(searchQuery)}`;
-        });
-    </script>
 </body>
 </html>
