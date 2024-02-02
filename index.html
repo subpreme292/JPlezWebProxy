@@ -22,17 +22,8 @@
             // Construct the Google search URL
             const googleSearchURL = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
 
-            // Display the search results in an iframe
-            const iframe = document.createElement('iframe');
-            iframe.src = `/proxy?url=${encodeURIComponent(googleSearchURL)}`;
-            iframe.style.width = '100%';
-            iframe.style.height = '500px';
-
-            // Clear previous search results
-            document.getElementById('searchResults').innerHTML = '';
-
-            // Append the iframe to the searchResults div
-            document.getElementById('searchResults').appendChild(iframe);
+            // Redirect to the proxy route with the constructed URL
+            window.location.href = `/proxy?url=${encodeURIComponent(googleSearchURL)}`;
         }
     </script>
 </body>
